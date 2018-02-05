@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。   关于微信的openId">
+<meta name="description" content="在不久前的面试中，一个动态加载li到ul里的题目，被问到性能优化的问题，一下把我问住了，就傻乎乎地回答：“每次循环结束的时候，把元素appendChild到ul里”。然后，面试官就点头，恩恩，好的。知道了。一看就知道，自己回到错了，回来后，就去各种查资料，现将一些总结如下，希望大家指正。 其实，这优化就是几个原则： 1. 多使用内存，缓存。 2. 减少cpu请求，减少网络。 3. 页面渲染上，尽量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="入职初体验">
-<meta property="og:url" content="http://yoursite.com/2018/02/02/入职初体验/index.html">
+<meta property="og:title" content="性能优化的浅析">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/性能优化的浅析/index.html">
 <meta property="og:site_name" content="前端小小白~哦吼~">
-<meta property="og:description" content="作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。   关于微信的openId">
+<meta property="og:description" content="在不久前的面试中，一个动态加载li到ul里的题目，被问到性能优化的问题，一下把我问住了，就傻乎乎地回答：“每次循环结束的时候，把元素appendChild到ul里”。然后，面试官就点头，恩恩，好的。知道了。一看就知道，自己回到错了，回来后，就去各种查资料，现将一些总结如下，希望大家指正。 其实，这优化就是几个原则： 1. 多使用内存，缓存。 2. 减少cpu请求，减少网络。 3. 页面渲染上，尽量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T08:00:07.696Z">
+<meta property="og:updated_time" content="2018-02-05T06:15:15.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="入职初体验">
-<meta name="twitter:description" content="作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。   关于微信的openId">
+<meta name="twitter:title" content="性能优化的浅析">
+<meta name="twitter:description" content="在不久前的面试中，一个动态加载li到ul里的题目，被问到性能优化的问题，一下把我问住了，就傻乎乎地回答：“每次循环结束的时候，把元素appendChild到ul里”。然后，面试官就点头，恩恩，好的。知道了。一看就知道，自己回到错了，回来后，就去各种查资料，现将一些总结如下，希望大家指正。 其实，这优化就是几个原则： 1. 多使用内存，缓存。 2. 减少cpu请求，减少网络。 3. 页面渲染上，尽量">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/02/入职初体验/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/24/性能优化的浅析/"/>
 
 
 
 
 
-  <title>入职初体验 | 前端小小白~哦吼~</title>
+  <title>性能优化的浅析 | 前端小小白~哦吼~</title>
   
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/入职初体验/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/24/性能优化的浅析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jerry">
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">入职初体验</h1>
+          <h1 class="post-title" itemprop="name headline">性能优化的浅析</h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T15:23:55+08:00">
-                2018-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T22:13:00+08:00">
+                2017-09-24
               </time>
             
 
@@ -311,7 +311,7 @@
 
           
           
-             <span id="/2018/02/02/入职初体验/" class="leancloud_visitors" data-flag-title="入职初体验">
+             <span id="/2017/09/24/性能优化的浅析/" class="leancloud_visitors" data-flag-title="性能优化的浅析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,39 +342,40 @@
       
 
       
-        <p>作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。</p>
-<blockquote>
-<ul>
-<li>关于微信的openId问题</li>
-<li>关于html2canvas的绘制问题</li>
-<li>公司的框架使用问题</li>
-<li>其他边角小问题</li>
-<li>小感慨</li>
-</ul>
-</blockquote>
-<p>废话不多说了，开始开始：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="关于微信的openId问题"><a href="#关于微信的openId问题" class="headerlink" title="关于微信的openId问题"></a><strong>关于微信的openId问题</strong></h3><p>由于前一段时间，微信的openId是存在cookie里的，受到过攻击，所以后台对openId进行了对应的加密处理，并在一定的生命周期里进行更新，这就让我们前端访问的时候，传递的参数openId会出现滞后，所以这时后台会有个跳转地址，让用户去获取最新的openId，这就造成了一个问题，前端在请求的时候，会导致页面重新刷新一次。所以，在页面渲染的时候，就有两步判断，一个是判断有无openId，第二个判断是否失效。</p>
-<h3 id="关于html2canvas的绘制"><a href="#关于html2canvas的绘制" class="headerlink" title="关于html2canvas的绘制"></a><strong>关于html2canvas的绘制</strong></h3><p>项目里有个截图需求，需要把html页面自动截图，供用户分享并识别二维码。所以我就采用了html2canvas这个工具，还是相当不错的，只是在开始的时候踩了个小坑。<br>html2canvas绘制出来的图片没有把微信头像绘制上。。。也就是头没了。。。没了。。了。<br>这个问题想了好久，最后才发现，这时跨域问题，因为微信头像是存在微信服务器上的，难以获取到。所以，需要我们后台合作一下，首先我们把微信的图片以Base64发给后台，后台处理后我们再获取并绘制，然后我们再对整个html进行第二次绘制，形成图片。<br>这里面遇到了另一个问题，如果将toast弹窗加到html2canvas的回调里，我们难以控制toast的展示时间并有可能把toast也放到截图里了，因为canvas绘制需要看手机性能以及网络（吧~~没验证！）所以，我就把toast加到最外面，等他消失后，我再进行绘制。</p>
-<p><a href="http://html2canvas.hertzen.com/getting-started" target="_blank" rel="noopener">html2canvas文档</a><br>1.可以npm 安装，并用import导入。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.body).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：</strong><br>    1.html2canvas 通过解析元素实际的样式来生成 canvas 图片内容，因此它对元素实际的布局和视觉显示有要求。如果要完整截图，最好将元素从文档流中独立出来（例如 position:absolute）<br>    2.默认生成的 canvas 图片在 retina 设备上显示很模糊，处理成 2 倍图能解决这个问题：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = $(<span class="string">"#code"</span>).width();  </span><br><span class="line"><span class="keyword">var</span> h = $(<span class="string">"#code"</span>).height();<span class="comment">//要将 canvas 的宽高设置成容器宽高的 2 倍  </span></span><br><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);  </span><br><span class="line">    canvas.width = w * <span class="number">2</span>;  </span><br><span class="line">    canvas.height = h * <span class="number">2</span>;  </span><br><span class="line">    canvas.style.width = w + <span class="string">"px"</span>;  </span><br><span class="line">    canvas.style.height = h + <span class="string">"px"</span>;  </span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);<span class="comment">//然后将画布缩放，将图像放大两倍画到画布上  </span></span><br><span class="line">    context.scale(<span class="number">2</span>,<span class="number">2</span>);  </span><br><span class="line">    html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">"#code"</span>), &#123;</span><br><span class="line">    canvas: canvas,          </span><br><span class="line">    onrendered: <span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;                </span><br><span class="line">    ...</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="公司的框架使用问题"><a href="#公司的框架使用问题" class="headerlink" title="公司的框架使用问题"></a><strong>公司的框架使用问题</strong></h3><ol>
-<li>在框架的js中，不能用className来表示，jsx中不识别，或者并不能显示出class同名的类名样式。</li>
-<li>点击时，如果弹出层只是秒现，说明点透了，加个settimeout延时就好。</li>
-<li><p>这个可以检测是否有图像，没图像的话，就用默认的图像，这里还可以采用透明图片来起到没有图片加载的作用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&#123;!!<span class="keyword">this</span>.menusList[<span class="number">7</span>] ? <span class="keyword">this</span>.menusList[<span class="number">7</span>].wechatHeadImg : <span class="keyword">this</span>.defaultImg&#125;/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>onClick={this.clickOrder}，–this.clickOrder(),表示立即执行。表示直接传event本身，后面可以直接采用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clickOrder = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</span><br><span class="line">         alert( $(t.target).html() );       </span><br><span class="line"> <span class="keyword">this</span>.update();  <span class="comment">//模板更新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <p>在不久前的面试中，一个动态加载li到ul里的题目，被问到性能优化的问题，一下把我问住了，就傻乎乎地回答：“每次循环结束的时候，把元素appendChild到ul里”。然后，面试官就点头，恩恩，好的。知道了。一看就知道，自己回到错了，回来后，就去各种查资料，现将一些总结如下，希望大家指正。</p>
+<p>其实，这优化就是几个原则：</p>
+<pre><code>1. 多使用内存，缓存。
+2. 减少cpu请求，减少网络。
+3. 页面渲染上，尽量快的把DOM展现出来。
+</code></pre><a id="more"></a>
+<p>那围绕上面几点，就有这些优化方式:</p>
+<pre><code>- 静态资源的压缩合并，多用缓存。
+- 多使用cdn（bootcdn之类的）--选就近的cdn可以减少网络耗时。
+- 使用ssr（sever side render）后端渲染数据，数据直接显示到html上，而不是通常的加载完后，再依靠ajax来渲染数据。
+</code></pre><p>在渲染呢，（把握dom操作的成本高，要快速的展示为主）</p>
+<pre><code>- css放前，js放后面（主要是js有权改变dom结构并阻塞渲染，所以js要在渲染要放在body的后面）
+- 懒加载（图片懒加载、下拉刷新等等，后面会稍微讲一讲）
+- 减少dom查询，对dom作缓存（var nodeList =$(&apos;li&apos;),这里就是作缓存，以及后面用到for循环的时候，尽量避免$(&apos;li&apos;).length，要用nodeList.length）
+- 减少dom操作，多操作的尽量合并在一起执行。（就像前面说的，多个标签一起插入的时候，要是一个一个的话，会很耗成本的。具体方法后面会有介绍。）
+- 事件节流（在键盘事件keyup上会有体现，后面也会具体分析）
+</code></pre><p>懒加载：当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为1*1px图片的路径（这样就只需请求一次，俗称占位图），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来（一般放在data-src属性里，用时直接赋值到src属性里）。这就是图片懒加载。js判断其是否在可视区域，是监听滚动条的。（这个面试也被问到了。/(ㄒoㄒ)/~~）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var imgNum=document.getElementsByTagName(&apos;img&apos;).length;</span><br><span class="line">    var imgObj=document.getElementsByTagName(&quot;img&quot;);</span><br><span class="line">    var l=0;</span><br><span class="line"></span><br><span class="line">        window.onscroll=function()&#123;</span><br><span class="line">                var seeHeight = document.documentElement.clientHeight;</span><br><span class="line">                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;</span><br><span class="line">                for(var i=l;i&lt;imgNum;i++)&#123;</span><br><span class="line">                    if(imgObj[i].offsetTop &lt; seeHeight + scrollTop)&#123;</span><br><span class="line">                        console.log(imgObj[i].getAttribute(&quot;src&quot;));</span><br><span class="line">                        console.log(imgObj[i].src );</span><br><span class="line">                        if(imgObj[i].getAttribute(&quot;src&quot;) == &quot;&quot;)&#123;</span><br><span class="line">                            imgObj[i].src = imgObj[i].getAttribute(&quot;data-src&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(imgObj[i].offsetTop &gt; seeHeight + scrollTop)&#123;</span><br><span class="line">                        l=i;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里再记录下jquery实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var l=0</span><br><span class="line">$(window).bind(&quot;scroll&quot;, function(event)&#123;</span><br><span class="line">                for(var i=l;i&lt;$(&quot;img&quot;).length;i++)&#123;</span><br><span class="line">                    if($(&quot;img&quot;).eq(i).offset().top &lt; parseInt($(window).height()) + parseInt($(window).scrollTop()))&#123;</span><br><span class="line">                        if($(&quot;img&quot;).eq(i).attr(&quot;src&quot;) == &quot;&quot;)&#123;</span><br><span class="line">                            var lazyloadsrc = $(&apos;img&apos;).eq(i).data(&quot;src&quot;);</span><br><span class="line">                            $(&quot;img&quot;).eq(i).attr(&quot;src&quot;,lazyloadsrc);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if($(&quot;img&quot;).eq(i).offset().top  &gt; parseInt($(window).height()) + parseInt($(window).scrollTop()))&#123;</span><br><span class="line">                        l=i;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这里再插下预加载：图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。<br>具体分析见：<a href="http://web.jobbole.com/86785/" title="别人的介绍" target="_blank" rel="noopener">预加载</a></p>
+<p>两者的比较：见：<a href="http://www.jianshu.com/p/4876a4fe7731" target="_blank" rel="noopener">http://www.jianshu.com/p/4876a4fe7731</a><br><strong>1)概念：</strong><br>懒加载也叫延迟加载：JS图片延迟加载,延迟加载图片或符合某些条件时才加载某些图片。<br>预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
+<p><strong>2)区别：</strong><br>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+<p><strong>3)懒加载的意义及实现方式有</strong>：<br>意义：<br>懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。<br>实现方式：<br>1.第一种是纯粹的延迟加载，使用setTimeOut或setInterval进行加载延迟.<br>2.第二种是条件加载，符合某些条件，或触发了某些事件才开始异步下载。<br>3.第三种是可视区加载，即仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片。</p>
+<p>4)预加载的意义及实现方式有：<br>意义:<br>预加载可以说是牺牲服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。<br>实现方式：<br>实现预载的方法非常多，比如：用CSS和JavaScript实现预加载；仅使用JavaScript实现预加载；使用Ajax实现预加载。<br>常用的是new Image();设置其src来实现预载，再使用onload方法回调预载完成事件。只要浏览器把图片下载到本地，同样的src就会使用缓存，这是最基本也是最实用的预载方法。当Image下载完图片头后，会得到宽和高，因此可以在预载前得到图片的大小(方法是用记时器轮循宽高变化)。</p>
+<p>这里接着我们开始的话题，接着将合并dom（<strong>减少dom操作</strong>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var ListNode = document.getElementById(&apos;list&apos;);</span><br><span class="line">var frag = document.createDocumentFragment();//DOM片段</span><br><span class="line">var i,li;</span><br><span class="line">for(i=0;i&lt;10;i++)&#123;</span><br><span class="line">	li.document.createElement(&apos;li&apos;);</span><br><span class="line">	li.innerHTML = i +&apos;&lt;br/&gt;&apos;;</span><br><span class="line">	frag.appendChild(li);//不会触发DOM操作</span><br><span class="line">&#125;</span><br><span class="line">ListNode.appendChild(frag)</span><br></pre></td></tr></table></figure></p>
+<p>对于<strong>事件节流</strong>来说，就举一个keyup的例子。那就是没按一次按键就会触发一次，如果对于连续敲击键盘的事件来说，就是一个非常不流畅的事情。所以，我们就希望事件节流。再用户输入完一串后再去触发，这时加个延时就好，如果在这个延时里，还有keyup事件就不触发，直到延时结束。</p>
+<p>那我最后再加一个<strong>页面渲染</strong>过程吧，</p>
+<ol>
+<li>根据html结构生成dom树。</li>
+<li>根据css生成cssom。</li>
+<li>将dom和cssom整合成renderTree。</li>
+<li>根据renderTree开始渲染和展示内容。</li>
+<li>其中，遇到脚本，会执行并阻塞渲染，遇到img会异步加载。</li>
 </ol>
-<p>如果，需要传其他参数，则需要再包一层函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">()=&gt;&#123; <span class="keyword">this</span>.clickOrder( e,data ) &#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="其他的边角小问题"><a href="#其他的边角小问题" class="headerlink" title="其他的边角小问题"></a><strong>其他的边角小问题</strong></h3><ol>
-<li>元素hidden和display：none，不一样，hidden的元素用display:block，是显示不出来的。</li>
-<li>在微信账号里，有个昵称一般会出现emoji表情，这时需要进行一定的加解密操作。在URL里获取的值需要先进行decodeURIComponent()，传给后台值的时候，先要进行Base64加密，获取的时候就需要对应的Base64解密了。</li>
-<li>部分坑爹机型（nubia，锤子等），会把网页中的img标签中的图片单独显示出来，<br>(1) 我们可以在外面建个盒子<code>&lt;a href=&quot;javascript:void(0)&quot;&gt;</code>来禁止默认响应。其他的例如按钮的图片，有onclick事件会直接执行onclick。<br>(2) 直接写在css样式里面，background来实现。</li>
-</ol>
-<h3 id="小感慨—碎碎念"><a href="#小感慨—碎碎念" class="headerlink" title="小感慨—碎碎念"></a><strong>小感慨</strong>—碎碎念</h3><p>刚进入公司，还有很多要学的，公司部门里大家都很友善，很热心，衷心地庆幸自己加入了这个有爱的family~~😄</p>
-<p>以后有不足的，再补充吧~~</p>
+<p>暂时先记这些吧，后面有了解的也会补充。也希望大家多多指正，也让我加强学习。(<em>^__^</em>) </p>
 
       
     </div>
@@ -399,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/09/说说闭包吧__/" rel="next" title="说说闭包吧~~">
-                <i class="fa fa-chevron-left"></i> 说说闭包吧~~
+              <a href="/2017/09/02/this的那些事儿/" rel="next" title="this那些事儿">
+                <i class="fa fa-chevron-left"></i> this那些事儿
               </a>
             
           </div>
@@ -408,6 +409,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/09/说说闭包吧__/" rel="prev" title="说说闭包吧~~">
+                说说闭包吧~~ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -464,17 +469,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -537,22 +533,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于微信的openId问题"><span class="nav-number">1.1.</span> <span class="nav-text">关于微信的openId问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于html2canvas的绘制"><span class="nav-number">1.2.</span> <span class="nav-text">关于html2canvas的绘制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公司的框架使用问题"><span class="nav-number">1.3.</span> <span class="nav-text">公司的框架使用问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他的边角小问题"><span class="nav-number">1.4.</span> <span class="nav-text">其他的边角小问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小感慨—碎碎念"><span class="nav-number">1.5.</span> <span class="nav-text">小感慨—碎碎念</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
