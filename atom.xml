@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>前端小小白~哦吼~</title>
+  
+  <subtitle>Don&#39;t lose My Heart</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-02-02T08:00:07.696Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jerry</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>入职初体验</title>
+    <link href="http://yoursite.com/2018/02/02/%E5%85%A5%E8%81%8C%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://yoursite.com/2018/02/02/入职初体验/</id>
+    <published>2018-02-02T07:23:55.030Z</published>
+    <updated>2018-02-02T08:00:07.696Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。</p><blockquote><ul><li>关于微信的openId问题</li><li>关于html2canvas的绘制问题</li><li>公司的框架使用问题</li><li>其他边角小问题</li><li>小感慨</li></ul></blockquote><p>废话不多说了，开始开始：</p><h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="关于微信的openId问题"><a href="#关于微信的openId问题" class="headerlink" title="关于微信的openId问题"></a><strong>关于微信的openId问题</strong></h3><p>由于前一段时间，微信的openId是存在cookie里的，受到过攻击，所以后台对openId进行了对应的加密处理，并在一定的生命周期里进行更新，这就让我们前端访问的时候，传递的参数openId会出现滞后，所以这时后台会有个跳转地址，让用户去获取最新的openId，这就造成了一个问题，前端在请求的时候，会导致页面重新刷新一次。所以，在页面渲染的时候，就有两步判断，一个是判断有无openId，第二个判断是否失效。</p><h3 id="关于html2canvas的绘制"><a href="#关于html2canvas的绘制" class="headerlink" title="关于html2canvas的绘制"></a><strong>关于html2canvas的绘制</strong></h3><p>项目里有个截图需求，需要把html页面自动截图，供用户分享并识别二维码。所以我就采用了html2canvas这个工具，还是相当不错的，只是在开始的时候踩了个小坑。<br>html2canvas绘制出来的图片没有把微信头像绘制上。。。也就是头没了。。。没了。。了。<br>这个问题想了好久，最后才发现，这时跨域问题，因为微信头像是存在微信服务器上的，难以获取到。所以，需要我们后台合作一下，首先我们把微信的图片以Base64发给后台，后台处理后我们再获取并绘制，然后我们再对整个html进行第二次绘制，形成图片。<br>这里面遇到了另一个问题，如果将toast弹窗加到html2canvas的回调里，我们难以控制toast的展示时间并有可能把toast也放到截图里了，因为canvas绘制需要看手机性能以及网络（吧~~没验证！）所以，我就把toast加到最外面，等他消失后，我再进行绘制。</p><p><a href="http://html2canvas.hertzen.com/getting-started" target="_blank" rel="noopener">html2canvas文档</a><br>1.可以npm 安装，并用import导入。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html2canvas(<span class="built_in">document</span>.body).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><p><strong>注意：</strong><br>    1.html2canvas 通过解析元素实际的样式来生成 canvas 图片内容，因此它对元素实际的布局和视觉显示有要求。如果要完整截图，最好将元素从文档流中独立出来（例如 position:absolute）<br>    2.默认生成的 canvas 图片在 retina 设备上显示很模糊，处理成 2 倍图能解决这个问题：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = $(<span class="string">"#code"</span>).width();  </span><br><span class="line"><span class="keyword">var</span> h = $(<span class="string">"#code"</span>).height();<span class="comment">//要将 canvas 的宽高设置成容器宽高的 2 倍  </span></span><br><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">"canvas"</span>);  </span><br><span class="line">    canvas.width = w * <span class="number">2</span>;  </span><br><span class="line">    canvas.height = h * <span class="number">2</span>;  </span><br><span class="line">    canvas.style.width = w + <span class="string">"px"</span>;  </span><br><span class="line">    canvas.style.height = h + <span class="string">"px"</span>;  </span><br><span class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);<span class="comment">//然后将画布缩放，将图像放大两倍画到画布上  </span></span><br><span class="line">    context.scale(<span class="number">2</span>,<span class="number">2</span>);  </span><br><span class="line">    html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">"#code"</span>), &#123;</span><br><span class="line">    canvas: canvas,          </span><br><span class="line">    onrendered: <span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;                </span><br><span class="line">    ...</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><h3 id="公司的框架使用问题"><a href="#公司的框架使用问题" class="headerlink" title="公司的框架使用问题"></a><strong>公司的框架使用问题</strong></h3><ol><li>在框架的js中，不能用className来表示，jsx中不识别，或者并不能显示出class同名的类名样式。</li><li>点击时，如果弹出层只是秒现，说明点透了，加个settimeout延时就好。</li><li><p>这个可以检测是否有图像，没图像的话，就用默认的图像，这里还可以采用透明图片来起到没有图片加载的作用。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&#123;!!<span class="keyword">this</span>.menusList[<span class="number">7</span>] ? <span class="keyword">this</span>.menusList[<span class="number">7</span>].wechatHeadImg : <span class="keyword">this</span>.defaultImg&#125;/&gt;</span><br></pre></td></tr></table></figure></li><li><p>onClick={this.clickOrder}，–this.clickOrder(),表示立即执行。表示直接传event本身，后面可以直接采用</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clickOrder = <span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</span><br><span class="line">         alert( $(t.target).html() );       </span><br><span class="line"> <span class="keyword">this</span>.update();  <span class="comment">//模板更新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p>如果，需要传其他参数，则需要再包一层函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">()=&gt;&#123; <span class="keyword">this</span>.clickOrder( e,data ) &#125;</span><br></pre></td></tr></table></figure></p><h3 id="其他的边角小问题"><a href="#其他的边角小问题" class="headerlink" title="其他的边角小问题"></a><strong>其他的边角小问题</strong></h3><ol><li>元素hidden和display：none，不一样，hidden的元素用display:block，是显示不出来的。</li><li>在微信账号里，有个昵称一般会出现emoji表情，这时需要进行一定的加解密操作。在URL里获取的值需要先进行decodeURIComponent()，传给后台值的时候，先要进行Base64加密，获取的时候就需要对应的Base64解密了。</li><li>部分坑爹机型（nubia，锤子等），会把网页中的img标签中的图片单独显示出来，<br>(1) 我们可以在外面建个盒子<code>&lt;a href=&quot;javascript:void(0)&quot;&gt;</code>来禁止默认响应。其他的例如按钮的图片，有onclick事件会直接执行onclick。<br>(2) 直接写在css样式里面，background来实现。</li></ol><h3 id="小感慨—碎碎念"><a href="#小感慨—碎碎念" class="headerlink" title="小感慨—碎碎念"></a><strong>小感慨</strong>—碎碎念</h3><p>刚进入公司，还有很多要学的，公司部门里大家都很友善，很热心，衷心地庆幸自己加入了这个有爱的family~~😄</p><p>以后有不足的，再补充吧~~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一只刚入职的小萌新，刚进入公司的时候还是一脸懵逼的，在工位上坐了两天学了下公司的业务流程和工具后，就被砸了个项目过来练手，心里也是比较激动的，相比看文档，我觉得还是直接上手写东西，来的直接，学的快。。毕竟要“知行合一”嘛，“实践是检验真理的唯一标准”。。哈哈，那我就首个项目的一些小问题做个简单的总结，希望以后也能有个好习惯，每周三省吾身—不是Wednesday啊。。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;关于微信的openId问题&lt;/li&gt;
+&lt;li&gt;关于html2canvas的绘制问题&lt;/li&gt;
+&lt;li&gt;公司的框架使用问题&lt;/li&gt;
+&lt;li&gt;其他边角小问题&lt;/li&gt;
+&lt;li&gt;小感慨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;废话不多说了，开始开始：&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/02/02/hello-world/"/>
+    <id>http://yoursite.com/2018/02/02/hello-world/</id>
+    <published>2018-02-02T06:04:27.613Z</published>
+    <updated>2018-02-02T06:04:27.613Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
